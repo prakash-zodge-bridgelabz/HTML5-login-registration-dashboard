@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <title>login</title>
+</head>
+
+<body>
+    
+    <form id="loginForm">
+        <header>
+            <h1>Login</h1>
+        </header>
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" id="txtUsername" placeholder="Username">
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="txtPassword" placeholder="Password">
+        </div>
+        <label id="errorOutput"></label>
+        <button id="btnLogin">Login</button>
+        <a href="registration.html">Register now</a>
+    </form>
+    <script>
+        document.getElementById('btnLogin').addEventListener('click', function(event) {
+            event.preventDefault(); 
+            
+            var username = document.getElementById('txtUsername').value;
+            var password = document.getElementById('txtPassword').value;
+
+            var storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+
+            var userFound = storedUsers.find(function(user) {
+                return user.username === username && user.password === password;
+            });
+
+            if (userFound) {
+                alert("Login successful!");
+            } else {
+                document.getElementById('errorOutput').textContent = "Invalid username or password...";
+            }
+        });
+    </script>
+</body>
+
+</html>

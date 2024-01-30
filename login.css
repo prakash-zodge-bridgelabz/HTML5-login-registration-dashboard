@@ -1,0 +1,43 @@
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, sans-serif;
+    background-color: #ae8080;
+}
+form {
+    max-width: 300px;
+    margin: 50px auto;
+    padding: 50px;
+    background: #a6d954;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(238, 6, 6, 0.9);
+}
+div {
+    margin-bottom: 15px;
+}
+h1{
+    margin: 5px auto;
+}
+label {
+    display: block;
+    font-weight: bold;
+}
+input[type="text"],
+input[type="password"],
+input[type="email"] ,
+textarea{
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #c71919;
+    border-radius: 15px;
+}
+#errorOutput {
+    color: red;
+    margin-bottom: 15px;
+}
+button {
+    background-color: #058709;
+    color: rgb(255, 255, 255);
+    padding: 10px 40px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+}

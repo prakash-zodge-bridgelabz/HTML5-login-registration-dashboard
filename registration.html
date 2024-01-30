@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <title>registration</title>
+</head>
+
+<body>
+    
+    <form id="loginForm">
+        <header>
+            <h1>Registration</h1>
+        </header>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="txtEmail" placeholder="Email">
+        </div>
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" id="txtUsername" placeholder="Username">
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="txtPassword" placeholder="Password">
+        </div>
+        <div>
+            <label for="address">Address:</label>
+            <textarea type="text" id="txtAddress"></textarea>
+        </div>
+        <label id="errorOutput"></label>
+        <button id="btnRegister">Register</button>
+        <a href="login.html" id="loginLink">Log in</a>
+    </form>
+    <script>
+        document.getElementById('btnRegister').addEventListener('click', function(event) {
+            event.preventDefault(); 
+            
+            var email = document.getElementById('txtEmail').value;
+            var username = document.getElementById('txtUsername').value;
+            var password = document.getElementById('txtPassword').value;
+            var address = document.getElementById('txtAddress').value;
+
+            if (!email || !username || !password || !address) {
+                document.getElementById('errorOutput').textContent = "All fields are required";
+                return;
+            }
+
+            var user = {
+                email: email,
+                username: username,
+                password: password,
+                address: address
+            };
+
+            var existingUsers = JSON.parse(localStorage.getItem('users')) || [];
+
+            existingUsers.push(user);
+
+            localStorage.setItem('users', JSON.stringify(existingUsers));
+
+            window.location.href = 'login.html';
+        });
+
+        document.getElementById('loginLink').addEventListener('click', function(event) {
+            event.preventDefault();
+            window.location.href = 'login.html';
+        });
+
+    </script>
+</body>
+
+</html>
